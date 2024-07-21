@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Battle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="game">
+        <h1>RPG Battle</h1>
+        <div id="battlefield">
+            <div id="enemy-info">
+                <h2>Enemy: <span id="enemy-name"></span></h2>
+                <p>HP: <span id="enemy-hp"></span></p>
+                <img id="enemy-image" src="{{ url_for('static', filename='images/A4.JPG') }}" alt="Enemy Image">
+            </div>
+            <div id="player-info">
+                <h2>Player</h2>
+                <p>HP: <span id="player-hp"></span></p>
+                <img id="enemy-image" src="{{ url_for('static', filename='images/player.png') }}" alt="player Image">
+            </div>
+        </div>
+        <div id="actions">
+            <button onclick="sendAction(1)">Attack</button>
+            <button onclick="sendAction(2)">Defend</button>
+            <button onclick="sendAction(3)">Use Herb</button>
+            <button onclick="sendAction(4)">Flee</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
