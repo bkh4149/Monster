@@ -61,14 +61,16 @@ def player_action():
         result = f"Player attacks for {damage_to_enemy} damage! Enemy attacks for {damage_to_player} damage!"
     # 他のアクションも同様にセッションを更新
 
-
     elif action == 2:  # 防御
         damage_to_player = calculate_damage(enemy, player) // 2
         player['hp'] -= damage_to_player
         result = "Player defends! Enemy attacks for {} damage!".format(damage_to_player)
+
     elif action == 3:  # 薬草
         player['hp'] += 20
+        session['player'] = player  # 更新されたプレイヤーのデータをセッションに保存        
         result = "Player uses a herb and recovers 20 HP!"
+
     elif action == 4:  # 逃げる
         return jsonify({"message": "Player fled the battle.", "winner": "Enemy"})
     
